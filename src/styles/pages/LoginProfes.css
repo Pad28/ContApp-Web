@@ -1,0 +1,77 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
+    background-color: #FAF3DD; /* Color de fondo similar al de la imagen */
+}
+
+.login-header {
+    font-size: 2rem;
+    color: #800020; /* Color de la cabecera, similar al tono burdeos de la imagen */
+    margin-bottom: 2rem;
+}
+
+.login-logo img {
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 2rem;
+    border-radius: 50%; /* Si el logo necesita ser redondeado */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 25rem;
+}
+
+input {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.forgot-password {
+    align-self: flex-end;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.forgot-password a {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #002855; /* Color azul oscuro del botón */
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #001F44; /* Color más oscuro al hacer hover */
+}
+
+.fingerprint-auth {
+    margin-top: 2rem;
+}
+
+.fingerprint-auth img {
+    width: 4rem;
+    height: 4rem;
+}
