@@ -1,0 +1,11 @@
+@import '../global/index.css';
+
+.container {
+    background-color: white;
+    width: 24rem;
+    height: auto;
+    padding-block: 2rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+}

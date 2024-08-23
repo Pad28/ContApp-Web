@@ -1,0 +1,52 @@
+:root {
+    --primary: #74022D;
+    --primary-hover: #a70342;
+    --background-primary: #FEF9D1;
+    --background-scondary: #FEFEFE;
+    --main-font: "Roboto", sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--background-primary);
+}
+
+h1 {
+    font-size: 5.2rem;
+}
+
+h2 {
+    font-size: 4.4rem;
+}
+
+h3 {
+    font-size: 3.4rem;
+}
+
+p {
+    font-size: 2.8rem;
+}
+
+.alert {
+    font-size: 2rem;
+}
+
+.container-body {
+    margin-top: 15rem;
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
