@@ -1,0 +1,50 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF3DD; /* Fondo color crema */
+    height: 100vh;
+    padding-top: 2rem; /* Espacio adicional para evitar que el Header tape contenido */
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: #800020; /* Color burdeos */
+    padding: 1rem;
+    margin-top: 2rem; /* Ajuste para separarlo del header */
+}
+
+button {
+    background-color: #D39E00; /* Color dorado por defecto */
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+button:hover {
+    background-color: #B57C00; /* Color dorado más oscuro al hacer hover */
+}
+
+.groups-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    margin-top: 2rem; /* Espacio adicional para la separación */
+}
+
+.groups-container button {
+    background-color: #800020; /* Color burdeos */
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1rem;
+}
