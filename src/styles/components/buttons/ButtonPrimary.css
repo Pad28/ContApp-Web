@@ -11,6 +11,6 @@
 }
 
 .button-primary:hover {
-    cursor: pointer;
-    background-color: var(--primary-hover);
+    background-color: #D39E00;
+    text-decoration: "black";
 }

@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { Button, Header, InputPrimary } from "../../components";
 import "../../styles/pages/LoginProfes.css";
 
-export const LoginScreen = () => {
+export const LoginScreenProfes = () => {
     const [form, setForm] = useState({ usuario: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
 

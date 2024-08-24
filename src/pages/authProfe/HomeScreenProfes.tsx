@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Header } from "../../components";
 import "../../styles/pages/HomeScreen.css";
 
-export const HomeScreen = () => {
+export const HomeScreenProfes = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path: string) => {
@@ -33,10 +33,21 @@ export const HomeScreen = () => {
 
             <div className="groups-container">
 
+                <div
+                    style={{
+                    color: "black",
+                    fontSize: "40px",
+                    fontWeight: "bold",
+                    marginTop: 30,
+                    marginLeft: -20
+                    }}
+                >
+                    Seleccione uno de sus grupos asignados
+                </div>
                 <Button
                     text="ISC91"
-                    onClick={() => handleNavigation("/grupo1")}
-                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: 100}}
+                    onClick={() => handleNavigation("/alumnos-en-clase-profes")}
+                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: -710}}
                 />
                 <Button
                     text="ISC92"
