@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button, Header, IconButton } from "../../components";
 import "../../styles/pages/HomeScreen.css";
 
-export const PublicarProfes = () => {
+export const QuizProfes = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path: string) => {
@@ -19,36 +19,28 @@ export const PublicarProfes = () => {
                 <IconButton
                     icon="home"
                     onClick={() => handleNavigation("/inicio-profesor")}
-                    style={{ backgroundColor: "transparent", color: "white", marginRight: 70 }}
+                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
+                    
                 />
-                <Button
-                    text="Alumnos"
-                    onClick={() => handleNavigation("/alumnos-en-clase-profes")}
-                    style={{ color: "white", marginRight: 30 }}
-                />
-                <Button
+               <Button
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    style={{ color: "white", marginRight: 30}}
                 />
                 <Button
                     text="Publicar"
                     onClick={() => handleNavigation("/publicar-profes")}
-                    style={{ 
-                        backgroundColor: isActive("/publicar-profes") ? "#D39E00" : "white",
-                        color: isActive("/publicar-profes") ? "black" : "white",
-                        marginRight: 30
-                    }}
+                    style={{ color: "white", marginRight: 30} }
                 />
                 <Button
-                    text="Quiz"
+                    text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    style={{ color: "white", marginRight: 30, backgroundColor: "#D39E00"} }
                 />
                 <Button
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white" }}
+                    style={{ color: "white", marginRight: 30} }
                 />
                 </Header>
             <div className="content">

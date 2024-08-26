@@ -1,6 +1,9 @@
 @import '../../global/index.css';
 
-.icon-button {
+.icon-button-alumno {
+    display: grid; 
+    grid-template-columns: 1fr 10fr;
+    gap: 10px;
     background-color: none; /* Fondo transparente */
     border: none;     /* Sin borde */
     cursor: pointer;  /* Cursor tipo mano */
@@ -10,9 +13,16 @@
 }
 
 .icon-button .material-symbols-outlined {
+    display: flex;
     font-size: 50px; /* Tamaño del ícono */
     color: white;    /* Color del ícono */
   }
+
+.text {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 700;
+}
   
   /* Estilo para el estado hover */
   .icon-button:hover .material-symbols-outlined {

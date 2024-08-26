@@ -5,12 +5,13 @@ interface IconButtonProps {
   icon: string;
   onClick?: () => void;
   style?: React.CSSProperties;
+  styleIcon?: React.CSSProperties;
 }
 
-export const IconButton = ({ icon, onClick, style }: IconButtonProps) => {
+export const IconButton = ({ icon, onClick, style, styleIcon }: IconButtonProps) => {
   return (
     <button onClick={onClick} style={style} className="icon-button">
-      <span className="material-symbols-outlined">{icon}</span>
+      <span style={styleIcon} className="material-symbols-outlined" >{icon}</span>
     </button>
   );
 };

@@ -2,8 +2,9 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button, Header, IconButton } from "../../components";
 import "../../styles/pages/HomeScreen.css";
+import { IconButtonAlumno } from "../../components/buttons/IconButtonAlumno";
 
-export const QuizProfes = () => {
+export const AvancesAlumnosProfe = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path: string) => {
@@ -19,17 +20,13 @@ export const QuizProfes = () => {
                 <IconButton
                     icon="home"
                     onClick={() => handleNavigation("/inicio-profesor")}
-                    style={{ backgroundColor: "transparent", color: "white", marginRight: 70 }}
-                />
-                <Button
-                    text="Alumnos"
-                    onClick={() => handleNavigation("/alumnos-en-clase-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf: "center", padding: "1.5rem" }}
+
                 />
                 <Button
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    style={{ color: "white", marginRight: 30, backgroundColor: "#D39E00" }}
                 />
                 <Button
                     text="Publicar"
@@ -37,22 +34,37 @@ export const QuizProfes = () => {
                     style={{ color: "white", marginRight: 30 }}
                 />
                 <Button
-                    text="Quiz"
+                    text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{ 
-                        backgroundColor: isActive("/quiz-profes") ? "#D39E00" : "white",
-                        color: isActive("/quiz-profes") ? "black" : "white",
-                        marginRight: 30
-                    }}
+                    style={{ color: "white", marginRight: 30 }}
                 />
                 <Button
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white" }}
+                    style={{ color: "white", marginRight: 30 }}
                 />
-                </Header>
+            </Header>
             <div className="content">
                 {/* Aquí puedes agregar el contenido adicional */}
+                <div style={{ height: 150 }}></div>
+                <IconButtonAlumno
+                    icon="home"
+                    text="Diego de Jesús Tenorio Miranda"
+                    onClick={() => { }}
+                    style={{ backgroundColor: "#123456", color: "white", width: 1000, marginTop: 10}}
+                    styleIcon={{ justifySelf: "flex-start", width: 80, marginLeft: "1rem" }}
+                    styleText={{ justifySelf: "start" }}
+                />
+
+                <IconButtonAlumno
+                    icon="home"
+                    text="Miguel Angel Padilla Perez"
+                    onClick={() => { }}
+                    style={{ backgroundColor: "#123456", color: "white", width: 1000, marginTop: 10 }}
+                    styleIcon={{ justifySelf: "flex-start", width: 80, marginLeft: "1rem" }}
+                    styleText={{ justifySelf: "start" }}
+                />
+
             </div>
         </div>
     );

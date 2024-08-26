@@ -1,0 +1,44 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF3DD; /* Fondo color crema */
+    height: 100vh;
+    padding-top: 2rem;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+}
+
+.settings-container {
+    background-color: #f4e6ba;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.setting-label {
+font-size: 2.2rem;
+    color: #333;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1.5rem 0;
+}

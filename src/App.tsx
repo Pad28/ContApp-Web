@@ -2,11 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import { LoginScreenProfes, RegisterStudentScreen, SendEmailScreen } from "./pages"
 import { HomeScreen } from "./pages/auth/HomeScreen";
 import { HomeScreenProfes } from "./pages/authProfe/HomeScreenProfes";
-import { AlumnosClaseProfe } from "./pages/authProfe/AlumnosEnClaseProfes";
-import { AvancesAlumnosProfe } from "./pages/authProfe/AvanceAlumnoProfes";
-import { PublicarProfes } from "./pages/authProfe/PublicarProfes";
-import { QuizProfes } from "./pages/authProfe/QuizProfes";
+import { AlumnosClaseProfe } from "./pages/profes/AlumnosEnClaseProfes";
+import { AvancesAlumnosProfe } from "./pages/profes/AvanceAlumnoProfes";
+import { PublicarProfes } from "./pages/profes/PublicarProfes";
+import { QuizProfes } from "./pages/profes/QuizProfes";
 import { SettingsProfes } from "./pages/authProfe/SettingsProfess";
+import { RecuperarContraProfes } from "./pages/auth/RecuperarContraseña";
 // import { Header } from "./components";
 
 export const App = () => {
@@ -14,6 +15,7 @@ export const App = () => {
   return (
     <div>
       <Routes>
+        <Route path="/forgot-password" element={<RecuperarContraProfes/>}/>
         <Route path="/login" element={<LoginScreenProfes />} />
         <Route path="/inicio" element={<HomeScreen />} />
         <Route path="/send-email" element={<SendEmailScreen />} />

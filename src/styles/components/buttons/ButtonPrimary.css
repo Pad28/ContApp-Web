@@ -1,7 +1,7 @@
 @import '../../global/index.css';
 
 .button-primary {
-    background-color: var(--primary);
+    background-color: #123456;
     color: white;
     font-size: 3rem;
     width: 15rem;

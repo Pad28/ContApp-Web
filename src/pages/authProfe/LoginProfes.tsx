@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Button, Header, InputPrimary } from "../../components";
 import "../../styles/pages/LoginProfes.css";
+import { useNavigate } from "react-router-dom";
 
 export const LoginScreenProfes = () => {
+    const navigate = useNavigate();
     const [form, setForm] = useState({ usuario: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
 
@@ -18,6 +20,7 @@ export const LoginScreenProfes = () => {
                 text: 'Por favor, complete todos los campos.',
                 customClass: { popup: 'alert' }
             });
+
         }
 
         setIsLoading(true);
@@ -29,8 +32,10 @@ export const LoginScreenProfes = () => {
                 icon: 'success',
                 text: 'Inicio de sesión exitoso!',
                 customClass: { popup: 'alert' }
-            });
+            }).then(()=>{navigate("/inicio-profesor")})
+            
         }, 2000);
+
     };
 
     return (
@@ -61,7 +66,7 @@ export const LoginScreenProfes = () => {
                         />
 
                         <div className="forgot-password">
-                            <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
+                            <a onClick={()=>navigate("/forgot-password")}>¿Olvidaste tu contraseña?</a>
                         </div>
 
                         <Button
