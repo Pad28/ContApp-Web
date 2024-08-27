@@ -8,6 +8,7 @@ import { PublicarProfes } from "./pages/profes/PublicarProfes";
 import { QuizProfes } from "./pages/profes/QuizProfes";
 import { SettingsProfes } from "./pages/authProfe/SettingsProfess";
 import { RecuperarContraProfes } from "./pages/auth/RecuperarContraseña";
+import { CrearQuizProfes } from "./pages/profes/CrearQuizzProfe";
 // import { Header } from "./components";
 
 export const App = () => {
@@ -26,6 +27,7 @@ export const App = () => {
         <Route path="/quiz-profes" element={<QuizProfes/>} />
         <Route path="/settings-profes" element={<SettingsProfes/>} />
         <Route path="/register/:token" element={<RegisterStudentScreen />} />
+        <Route path="/crear-quiz-profes" element={<CrearQuizProfes/>}/>
         <Route path="*" element={<h1>404 | Not found <div style={{ height: '28rem' }} /> </h1>} />
       </Routes>
     </div>

@@ -106,7 +106,7 @@ export const SettingsProfes = () => {
             />
             <Modal
                 isOpen={isCerrarSesionOpen}
-                onClose={() => setIsNameModalOpen(false)}
+                onClose={() => setIsCerrarSesionOpen(false)}
                 onSave={handleCerrarSesion}
                 placeholder="¿Desea cerrar sesión?"
                 inputType="text"

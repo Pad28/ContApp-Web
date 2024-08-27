@@ -36,16 +36,9 @@ export const usePeticionPost = <T extends Object>(initState: T) => {
         return response.data;
     }
 
-    const peticionPostSwall = (options: peticionPostSwallOptions) => {
-        const { body, paht, config, messageError, messageSuccess } = options;
-        peticionPost(paht, body, config)
-            .then(res => {
-                Swal.fire({
-                    icon: 'success',
-                    text: (messageSuccess) ? messageSuccess : `${res.msg}`,
-                    customClass: { popup: 'alert' }
-                });
-            })
+    const peticionPostSwall = async(options: peticionPostSwallOptions) => {
+        const  { body, paht, config, messageError, messageSuccess } = options;
+        const resultado = await peticionPost(paht, body, config)
             .catch(error => {
                 setIsLoading(false)
                 Swal.fire({
@@ -54,6 +47,7 @@ export const usePeticionPost = <T extends Object>(initState: T) => {
                     customClass: { popup: 'alert' }
                 });
             });
+        return resultado;
     }
 
     return {

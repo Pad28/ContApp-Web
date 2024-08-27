@@ -3,39 +3,25 @@ import Swal from "sweetalert2";
 import { Button, Header, InputPrimary } from "../../components";
 import "../../styles/pages/LoginProfes.css";
 import { useNavigate } from "react-router-dom";
+import { LoginResponse } from "../../interfaces/LoginResponse";
+import { usePeticionPost } from "../../hooks/requests/useRequestPost";
+import { LocalStorageKeys } from "../../providers/LocalStorage";
 
 export const LoginScreenProfes = () => {
     const navigate = useNavigate();
-    const [form, setForm] = useState({ usuario: "", password: "" });
-    const [isLoading, setIsLoading] = useState(false);
+    const { form, onChange, peticionPostSwall, isLoading } = usePeticionPost({ correo: "", password: "" })
 
-    const onChange = (value: string, field: string) => {
-        setForm({ ...form, [field]: value });
-    };
-
-    const handleLogin = () => {
-        if (form.usuario === "" || form.password === "") {
-            return Swal.fire({
-                icon: 'error',
-                text: 'Por favor, complete todos los campos.',
-                customClass: { popup: 'alert' }
-            });
-
-        }
-
-        setIsLoading(true);
-
-        // Simulando una petición de login
-        setTimeout(() => {
-            setIsLoading(false);
-            Swal.fire({
-                icon: 'success',
-                text: 'Inicio de sesión exitoso!',
-                customClass: { popup: 'alert' }
-            }).then(()=>{navigate("/inicio-profesor")})
-            
-        }, 2000);
-
+    const handleLogin = async () => {
+        const result = (await peticionPostSwall({
+            body: form,
+            paht: "/api/auth/profesor"
+        })) as LoginResponse;
+        if (!result) return;
+        localStorage.setItem(LocalStorageKeys.USER_DATA, JSON.stringify(result));
+        localStorage.setItem(LocalStorageKeys.IS_LOGIN, "true");
+        navigate("/inicio-profesor")
+        // const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
+        // const obj = JSON.parse(data!) as LoginResponse;
     };
 
     return (
@@ -52,7 +38,7 @@ export const LoginScreenProfes = () => {
                     <div className="login-form">
                         <InputPrimary
                             icon="user-icon" // Puedes agregar el icono de usuario si tienes uno
-                            onChange={(value) => onChange(value, "usuario")}
+                            onChange={(value) => onChange(value, "correo")}
                             placeholder="Usuario"
                             type="text"
                             style={{ marginBottom: "1rem" }}

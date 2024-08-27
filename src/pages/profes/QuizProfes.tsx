@@ -43,8 +43,12 @@ export const QuizProfes = () => {
                     style={{ color: "white", marginRight: 30} }
                 />
                 </Header>
-            <div className="content">
-                {/* Aquí puedes agregar el contenido adicional */}
+                <div className="content">
+                <Button
+                    text="Crear Quiz"
+                    onClick={() => handleNavigation("/crear-quiz-profes")}
+                    style={{ marginTop: 150, width: "170px"}}
+                />
             </div>
         </div>
     );
