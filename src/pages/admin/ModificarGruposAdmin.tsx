@@ -9,7 +9,13 @@ const profesores = [
     // Añadir más profesores según sea necesario
 ];
 
-export const CrearGrupoAdmin = () => {
+const grupos = [
+    { grupo: "ADE11" },
+    { grupo: "ADE23" },
+    // Añadir más profesores según sea necesario
+];
+
+export const ModificarGrupoAdmin = () => {
     const navigate = useNavigate();
 
     const isActive = (path: string) => window.location.pathname === path;
@@ -17,6 +23,22 @@ export const CrearGrupoAdmin = () => {
     const [selectedProfesor, setSelectedProfesor] = useState(profesores[0].numeroEmpleado);
     // Manejar el cambio de selección en el ComboBox
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const numeroEmpleado = e.target.value;
+        setSelectedProfesor(numeroEmpleado);
+
+        // Buscar el profesor seleccionado en la lista y actualizar los campos
+        const profesor = profesores.find((prof) => prof.numeroEmpleado === numeroEmpleado);
+        if (profesor) {
+            setEmail(profesor.correo);
+            setFirstName(profesor.nombre);
+            setLastName(profesor.apellidos);
+            setPassword(profesor.contraseña);
+        }
+    };
+
+    const [selectedProfesor2, setSelectedProfesor2] = useState(profesores[0].numeroEmpleado);
+    // Manejar el cambio de selección en el ComboBox
+    const handleSelectChange2 = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const numeroEmpleado = e.target.value;
         setSelectedProfesor(numeroEmpleado);
 
@@ -66,8 +88,8 @@ export const CrearGrupoAdmin = () => {
                     text="Grupos"
                     onClick={() => handleNavigation("/grupos-admin")}
                     style={{
-                        backgroundColor: isActive("/crear-grupos-admin") ? "#D39E00" : "white",
-                        color: isActive("/crear-grupos-admin") ? "white" : "white",
+                        backgroundColor: isActive("/modificar-grupos-admin") ? "#D39E00" : "white",
+                        color: isActive("/modificar-grupos-admin") ? "white" : "white",
                         marginRight: 30
                     }}
                 />
@@ -80,29 +102,29 @@ export const CrearGrupoAdmin = () => {
             <div>
                 <Button
                     text="Crear grupo"
-                    onClick={() => handleNavigation("/crear-profe-admin")}
-                    style={{
-                        backgroundColor: isActive("/crear-grupos-admin") ? "#D39E00" : "white",
-                        color: isActive("/crear-grupos-admin") ? "black" : "white",
-                        width: "180px", marginTop: 150
-                    }}
+                    onClick={() => handleNavigation("/crear-grupos-admin")}
+                    style={{width: "180px", marginRight: 100 }}
                 />
                 <Button
                     text="Modificar grupo"
                     onClick={() => handleNavigation("/modificar-grupos-admin")}
-                    style={{ marginLeft: 100, width: "230px" }}
+                    style={{
+                        backgroundColor: isActive("/modificar-grupos-admin") ? "#D39E00" : "white",
+                        color: isActive("/modificar-grupos-admin") ? "black" : "white",
+                        width: "230px", marginTop: 150
+                    }}
                 />
             </div>
             <div className="content" style={{textAlign: "center"}}>
                 <div className="input-group" style={{ marginTop: 10 }}>
-                    <label style={{fontSize: 25}}>Nombre del grupo: </label>
-                    <input
-                        type="text"
-                        value={employeeNumber}
-                        onChange={(e) => setEmployeeNumber(e.target.value)}
-                        placeholder="Ingrese nombre del grupo"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250}}
-                    />
+                    <label style={{fontSize: 25}}>Grupo(s): </label>
+                    <select value={selectedProfesor2} onChange={handleSelectChange}  style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
+                        {profesores.map((prof) => (
+                            <option key={prof.numeroEmpleado} value={prof.numeroEmpleado}>
+                                {prof.numeroEmpleado}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div className="input-group">
                     <label style={{fontSize: 25}}>Número de empleado: </label>
@@ -115,9 +137,9 @@ export const CrearGrupoAdmin = () => {
                     </select>
                 </div>
                 <Button
-                    text="Registrar asignacion de grupo"
+                    text="Modificar asignacion de grupo"
                     onClick={handleRegister}
-                    style={{ marginTop: 40, width: "420px" }}
+                    style={{ marginTop: 40, width: "430px" }}
                 />
             </div>
         </div>

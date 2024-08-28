@@ -25,7 +25,7 @@ export const GruposScreenAdmin = () => {
                 />
                 <Button
                     text="Settings"
-                    onClick={() => handleNavigation("/settings-profes")}
+                    onClick={() => handleNavigation("/settings-admin")}
                     style={{ color: "white", marginRight: 30 }}
                 />
             </Header>
@@ -37,7 +37,7 @@ export const GruposScreenAdmin = () => {
                 />
                 <Button
                     text="Modificar grupo"
-                    onClick={() => handleNavigation("/modificar-profe-admin")}
+                    onClick={() => handleNavigation("/modificar-grupos-admin")}
                     style={{ marginLeft: 100, width: "230px" }}
                 />
             </div>

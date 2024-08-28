@@ -25,7 +25,7 @@ export const HomeScreenAdmin = () => {
                 />
                 <Button
                     text="Settings"
-                    onClick={() => handleNavigation("/settings-profes")}
+                    onClick={() => handleNavigation("/settings-admin")}
                     style={{ color: "white", marginRight: 30 }}
                 />
             </Header>

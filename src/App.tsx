@@ -14,6 +14,8 @@ import { CrearProfeAdmin } from "./pages/admin/CrearProfesorAdmin";
 import { ModificarProfeAdmin } from "./pages/admin/ModificarProfesorAdmin";
 import { GruposScreenAdmin } from "./pages/admin/GruposAdmin";
 import { CrearGrupoAdmin } from "./pages/admin/CrearGruposAdmin";
+import { ModificarGrupoAdmin } from "./pages/admin/ModificarGruposAdmin";
+import { SettingsAdmin } from "./pages/admin/SettingsAdmin";
 // import { Header } from "./components";
 
 export const App = () => {
@@ -38,6 +40,8 @@ export const App = () => {
         <Route path="/modificar-profe-admin" element={<ModificarProfeAdmin/>} />
         <Route path="/grupos-admin" element={<GruposScreenAdmin/>} />
         <Route path="/crear-grupos-admin" element={<CrearGrupoAdmin/>} />
+        <Route path="/modificar-grupos-admin" element={<ModificarGrupoAdmin/>} />
+        <Route path="/settings-admin" element={<SettingsAdmin/>} />
         <Route path="*" element={<h1>404 | Not found <div style={{ height: '28rem' }} /> </h1>} />
       </Routes>
     </div>
