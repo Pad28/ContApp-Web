@@ -65,8 +65,8 @@ export const PublicarProfes = () => {
                     style={{ padding: '10px', marginTop: '40px', fontSize: '16px', width: 210 }}
                 >
                     <option value="" disabled>Seleccione una opción</option>
-                    <option value="aviso">Aviso</option>
-                    <option value="actividad">Actividad</option>
+                    <option value="Aviso">Aviso</option>
+                    <option value="Documento">Documento</option>
                 </select>
 
                 {/* Campo de texto para descripción */}

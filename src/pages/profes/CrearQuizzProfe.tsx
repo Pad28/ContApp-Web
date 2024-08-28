@@ -129,6 +129,11 @@ export const CrearQuizProfes = () => {
                     style={{ marginTop: "20px", backgroundColor: "green", color: "white", width: 270 }}
                 />
             </div>
+                <Button
+                    text="Publicar Quiz"
+                    onClick={"/"}
+                    style={{fontSize: 30,  marginTop: 20, width: 200}}
+                />
         </div>
     );
 };
