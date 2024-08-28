@@ -1,8 +1,9 @@
 import React from 'react';
 import "../../styles/components/buttons/IconButtonAlumno.css";
+import { IconType } from 'react-icons';
 
 interface IconButtonProps {
-  icon: string;
+  icon: IconType; // Cambiado para aceptar un componente de icono
   text: string;
   onClick?: () => void;
   style?: React.CSSProperties;
@@ -10,12 +11,11 @@ interface IconButtonProps {
   styleText?: React.CSSProperties;
 }
 
-export const IconButtonAlumno = ({ icon, onClick, style, styleIcon, text, styleText }: IconButtonProps) => {
+export const IconButtonAlumno = ({ icon: Icon, onClick, style, styleIcon, text, styleText }: IconButtonProps) => {
   return (
     <button onClick={onClick} style={style} className="icon-button-alumno">
-      <span style={styleIcon} className="material-symbols-outlined" >{icon}</span>
+      <Icon style={styleIcon} className="icon" />  {/* Aquí renderiza el componente de icono */}
       <span style={styleText} className="text" >{text}</span>
-    
     </button>
   );
 };

@@ -31,31 +31,36 @@ export const HomeScreenProfes = () => {
                 />
             </div>
 
-            <div className="groups-container">
+            <div className="groups-container" style={{flexDirection:"column"}}>
 
-                <div
+                <div>
+                <p
                     style={{
-                    color: "black",
-                    fontSize: "40px",
-                    fontWeight: "bold",
-                    marginTop: 30,
-                    marginLeft: -20
-                    }}
-                >
-                    Seleccione uno de sus grupos asignados
+                        color: "black",
+                        fontSize: "40px",
+                        fontWeight: "bold"
+                    }}>Seleccione uno de sus grupos asignados</p>
                 </div>
-                <Button
-                    text="ISC91"
-                    onClick={() => handleNavigation("/alumnos-en-clase-profes")}
-                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: -710}}
-                />
-                <Button
-                    text="ISC92"
-                    onClick={() => handleNavigation("/grupo2")}
-                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: 200 }}
-                />
-                
             </div>
+            
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr"
+            }}>
+                    <Button
+                        text="ISC91"
+                        onClick={() => handleNavigation("/alumnos-en-clase-profes")}
+                        style={{ backgroundColor: "#800020", color: "white", marginTop: 10, height: 100, width: 230, marginInline: 15, alignSelf: "center"  }}
+                    />
+                    <Button
+                        text="ISC91"
+                        onClick={() => handleNavigation("/alumnos-en-clase-profes")}
+                        style={{ backgroundColor: "#800020", color: "white", marginTop: 10, height: 100, width: 230, marginInline: 15, alignSelf: "center"  }}
+                    />
+            </div>
+
+                    
+            
         </div>
     );
 };
