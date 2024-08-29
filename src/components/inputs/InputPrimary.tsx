@@ -6,7 +6,7 @@ interface Props {
     type: string;
     style?: React.CSSProperties;
     onChange: (event: any) => void;
-    icon: string;
+    icon?: string;
 }
 
 export const InputPrimary = ({ placeholder, type, style, onChange }: Props) => {

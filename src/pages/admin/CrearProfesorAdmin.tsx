@@ -1,9 +1,13 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Header, IconButton } from "../../components";
+import { Button, Header, InputPrimary } from "../../components";
 import "../../styles/pages/HomeScreen.css";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 import { FaChalkboardTeacher, FaCog, FaUsers } from "react-icons/fa";
+import { usePeticionPost } from "../../hooks/requests/useRequestPost";
+import { CrearProfeInterfaz } from "../../interfaces/CrearProfesorInterfaz";
+import { LocalStorageKeys } from "../../providers/LocalStorage";
+import { LoginResponse } from "../../interfaces/LoginResponse";
+import Swal from "sweetalert2";
 
 export const CrearProfeAdmin = () => {
     const navigate = useNavigate();
@@ -15,23 +19,27 @@ export const CrearProfeAdmin = () => {
     };
 
     // Estado para almacenar los valores de los campos de entrada
-    const [employeeNumber, setEmployeeNumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [password, setPassword] = useState('');
+    
 
-    // Función para manejar el envío del formulario
-    const handleRegister = () => {
-        // Aquí puedes manejar el registro del profesor, por ejemplo, enviando los datos a un backend
-        console.log({
-            employeeNumber,
-            email,
-            firstName,
-            lastName,
-            password
+
+    const {form, onChange, peticionPostSwall, isLoading } = usePeticionPost({ matricula: "", correo: "", nombre: "", apellidos: "", password: ""})
+
+    const handleCrearProfe = async () => {
+        const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
+        const obj = JSON.parse(data!) as LoginResponse;
+        const result = (await peticionPostSwall({
+            body: form,
+            paht: "/api/user/profesor",
+            config: {headers:{Authorization:"Bearer "+obj.token}}
+            
+        })) as CrearProfeInterfaz;
+        if (!result) return;
+        Swal.fire({
+            icon: "success",
+            text: "Profesor creado con éxito",
+            title: "Aviso",
+            timer: 2000
         });
-        alert('Profesor registrado con éxito.');
     };
 
     return (
@@ -75,57 +83,52 @@ export const CrearProfeAdmin = () => {
             <div className="content" style={{textAlign: "center"}}>
                 <div className="input-group" style={{ marginTop: 10 }}>
                     <label style={{fontSize: 25}}>Número de empleado: </label>
-                    <input
+                    <InputPrimary
                         type="text"
-                        value={employeeNumber}
-                        onChange={(e) => setEmployeeNumber(e.target.value)}
+                        onChange={(value) => onChange(value, "matricula")}
                         placeholder="Ingrese número de empleado"
                         style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 280}}
                     />
                 </div>
                 <div className="input-group">
                     <label style={{fontSize: 25}}>Correo: </label>
-                    <input
+                    <InputPrimary
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(value) => onChange(value, "correo")}
                         placeholder="Ingrese correo"
                         style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
                     <label style={{fontSize: 25}}>Nombre: </label>
-                    <input
+                    <InputPrimary
                         type="text"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(value) => onChange(value, "nombre")}
                         placeholder="Ingrese nombre"
                         style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250}}
                     />
                 </div>
                 <div className="input-group">
                     <label style={{fontSize: 25}}>Apellidos: </label>
-                    <input
+                    <InputPrimary
                         type="text"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                        onChange={(value) => onChange(value, "apellidos")}
                         placeholder="Ingrese apellidos"
                         style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
                     <label style={{fontSize: 25}}>Contraseña: </label>
-                    <input
+                    <InputPrimary
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(value) => onChange(value, "password")}
                         placeholder="Ingrese contraseña"
                         style={{fontSize: 20, marginTop: 10, width: 250}}
                     />
                 </div>
                 <Button
                     text="Registrar profesor"
-                    onClick={handleRegister}
+                    onClick={handleCrearProfe}
                     style={{ marginTop: 40, width: "260px" }}
                 />
             </div>

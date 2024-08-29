@@ -19,7 +19,7 @@ export const LoginScreenProfes = () => {
         if (!result) return;
         localStorage.setItem(LocalStorageKeys.USER_DATA, JSON.stringify(result));
         localStorage.setItem(LocalStorageKeys.IS_LOGIN, "true");
-        navigate("/inicio-profesor")
+        navigate("/inicio-admin")
         // const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
         // const obj = JSON.parse(data!) as LoginResponse;
         
