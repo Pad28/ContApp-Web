@@ -1,17 +1,18 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Button, Header, IconButton } from "../../components";
-import "../../styles/pages/HomeScreen.css";
 
+import { useNavigate } from "react-router-dom";
+import { Header, IconButton } from "../../components";
+import "../../styles/pages/HomeScreen.css";
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
+import { FaChartLine } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
 export const AlumnosClaseProfe = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path: string) => {
         navigate(path);
     };
-
-    // Función para verificar si la ruta actual es la misma que la ruta del botón
-    const isActive = (path: string) => location.pathname === path;
 
     return (
         <div className="home-container">
@@ -22,25 +23,27 @@ export const AlumnosClaseProfe = () => {
                     style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
                     
                 />
-                <Button
+                <IconButtonNav
+                    icon={FaChartLine}
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30}}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Publicar"
                     onClick={() => handleNavigation("/publicar-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaUpload}
                 />
-                <Button
+                <IconButtonNav
                     text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaClipboard}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaCog}
                 />
                 </Header>
 

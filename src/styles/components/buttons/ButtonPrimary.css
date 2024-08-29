@@ -1,7 +1,7 @@
 @import '../../global/index.css';
 
 .button-primary {
-    background-color: #123456;
+    background-color: #74022D;
     color: white;
     font-size: 3rem;
     width: 15rem;
@@ -11,6 +11,6 @@
 }
 
 .button-primary:hover {
-    background-color: #D39E00;
+    background-color: #74022D;
     text-decoration: "black";
 }

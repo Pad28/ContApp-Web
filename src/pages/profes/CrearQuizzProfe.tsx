@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Header, IconButton } from "../../components";
 import "../../styles/pages/HomeScreen.css";
-
+import { FaChartLine } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 export const CrearQuizProfes = () => {
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([
@@ -44,36 +48,34 @@ export const CrearQuizProfes = () => {
     return (
         <div className="home-container">
             <Header text="">
-            <IconButton
+                <IconButton
                     icon="home"
                     onClick={() => handleNavigation("/inicio-profesor")}
-                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
-                    
+                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf: "center", padding: "1.5rem" }}
+
                 />
-                
-                <Button
+
+                <IconButtonNav
+                    icon={FaChartLine}
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+
                 />
-                <Button
+                <IconButtonNav
                     text="Publicar"
                     onClick={() => handleNavigation("/publicar-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    icon={FaUpload}
                 />
-                <Button
+                <IconButtonNav
                     text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{
-                        backgroundColor: isActive("/crear-quiz-profes") ? "#D39E00" : "white",
-                        color: isActive("/crear-quiz-profes") ? "black" : "white",
-                        marginRight: 30
-                    }}
+                    icon={FaClipboard}
+                    style={{ backgroundColor: "#D39E00" }}
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white" }}
+                    icon={FaCog}
                 />
             </Header>
             <div className="content"
@@ -82,10 +84,10 @@ export const CrearQuizProfes = () => {
                 <Button
                     text="Crear Quizz"
                     onClick={() => handleNavigation("/crear-quiz-profes")}
-                    style={{ 
+                    style={{
                         backgroundColor: isActive("/crear-quiz-profes") ? "#D39E00" : "white",
                         color: isActive("/crear-quiz-profes") ? "black" : "white",
-                        marginTop: 150, width: "170px"
+                        marginTop: 150, width: "200px"
                     }}
                 />
                 {questions.map((q, qIndex) => (
@@ -129,11 +131,12 @@ export const CrearQuizProfes = () => {
                     style={{ marginTop: "20px", backgroundColor: "green", color: "white", width: 270 }}
                 />
             </div>
-                <Button
-                    text="Publicar Quiz"
-                    onClick={"/"}
-                    style={{fontSize: 30,  marginTop: 20, width: 200}}
-                />
+            <Button
+                text="Publicar Quizz"
+                onClick={()=>{}}
+                style={{ fontSize: 30, marginTop: 20, width: 220, marginBottom:20 }}
+            />
+            <div style={{ height: 150 }}></div>
         </div>
     );
 };

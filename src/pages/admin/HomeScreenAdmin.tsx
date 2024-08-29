@@ -1,7 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Header, IconButton } from "../../components";
+import { Button, Header } from "../../components";
 import "../../styles/pages/HomeScreen.css";
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
+import { FaChalkboardTeacher, FaCog, FaUsers } from "react-icons/fa";
 
 export const HomeScreenAdmin = () => {
     const navigate = useNavigate();
@@ -13,21 +14,25 @@ export const HomeScreenAdmin = () => {
     return (
         <div className="home-container">
             <Header text="">
-                <Button
+            <IconButtonNav
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
-                    style={{ color: "white", marginRight: 30, backgroundColor: "#D39E00", width: 170 }}
+                    icon={FaChalkboardTeacher}
+                    style={{width:200, backgroundColor: "#D39E00"}}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Grupos"
                     onClick={() => handleNavigation("/grupos-admin")}
-                    style={{ color: "white", marginRight: 30 }}
+                    icon={FaUsers}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-admin")}
-                    style={{ color: "white", marginRight: 30 }}
+                    icon={FaCog}
                 />
+                
             </Header>
             <div>
                 <Button

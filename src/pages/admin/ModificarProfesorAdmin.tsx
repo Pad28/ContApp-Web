@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Header } from "../../components";
 import "../../styles/pages/HomeScreen.css";
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
+import { FaChalkboardTeacher, FaCog, FaUsers } from "react-icons/fa";
 
 // Ejemplo de datos de profesores
 const profesores = [
@@ -55,24 +57,23 @@ export const ModificarProfeAdmin = () => {
     return (
         <div className="home-container">
             <Header text="">
-                <Button
+            <IconButtonNav
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
-                    style={{
-                        backgroundColor: isActive("/modificar-profe-admin") ? "#D39E00" : "white",
-                        color: isActive("/modificar-profe-admin") ? "white" : "white",
-                        marginRight: 30, width: 170
-                    }}
+                    icon={FaChalkboardTeacher}
+                    style={{width:200, backgroundColor: "#D39E00"}}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Grupos"
                     onClick={() => handleNavigation("/grupos-admin")}
-                    style={{ color: "white", marginRight: 30 }}
+                    icon={FaUsers}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
-                    onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white", marginRight: 30 }}
+                    onClick={() => handleNavigation("/settings-admin")}
+                    icon={FaCog}
                 />
             </Header>
             <div>

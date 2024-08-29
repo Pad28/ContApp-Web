@@ -13,7 +13,10 @@ export const Header = ({text, style, children}: Props) => {
         <header className='container-header' style={style} >
             <img src={logo} className="img-header" />
             <h1 className='text-header' > {text} </h1>
-            <div className="header-buttons"> {/* Añade esta línea para mostrar los botones */}
+            <div className="header-buttons" style={{
+                display: "flex",
+                flexDirection: "row"
+            }}> {/* Añade esta línea para mostrar los botones */}
                 {children}
             </div>
         </header>

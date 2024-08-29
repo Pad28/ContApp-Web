@@ -22,17 +22,37 @@ export const LoginScreenProfes = () => {
         navigate("/inicio-profesor")
         // const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
         // const obj = JSON.parse(data!) as LoginResponse;
+        
     };
+    const cargando = ()=>{
+        
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "center",
+                width: 200,
+                heightAuto: true,
+                showConfirmButton: false,
+                timer: 400,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "info",
+                title: "Cargando..."
+              });
+        
+    }
+ 
 
     return (
         <div className="login-container">
             <Header text="Inicio de sesión" />
-            
-
-            
 
             {isLoading ? (
-                <div className="loading">Cargando...</div>
+                <div className="loading">vacio</div>
             ) : (
                 <>
                     <div className="login-form">
@@ -57,7 +77,10 @@ export const LoginScreenProfes = () => {
 
                         <Button
                             text="Ingresar"
-                            onClick={handleLogin}
+                            onClick={()=>{
+                                handleLogin();
+                                cargando();
+                            }}
                             style={{ width: "100%", marginTop: "1rem" }}
                         />
                     </div>

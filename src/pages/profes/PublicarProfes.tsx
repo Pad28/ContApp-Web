@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Header, IconButton } from "../../components";
 import "../../styles/pages/HomeScreen.css";
-
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
+import { FaChartLine } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
 export const PublicarProfes = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path: string) => {
         navigate(path);
     };
-
+    const [selectedFile, setSelectedFile] = useState(null);
+    const handleFileChange = (event: any) => {
+        setSelectedFile(event.target.files[0]);
+    };
     const [opcion, setOpcion] = useState(""); // Nuevo estado para el dropdown
     const [descripcion, setDescripcion] = useState(""); // Nuevo estado para la descripción
-
    
-
-    // Función para verificar si la ruta actual es la misma que la ruta del botón
-    const isActive = (path: string) => location.pathname === path;
 
     return (
         <div className="home-container">
@@ -27,25 +30,27 @@ export const PublicarProfes = () => {
                     style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
                     
                 />
-                <Button
+                <IconButtonNav
+                    icon={FaChartLine}
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30}}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Publicar"
                     onClick={() => handleNavigation("/publicar-profes")}
-                    style={{ color: "white", marginRight: 30, backgroundColor: "#D39E00"} }
+                    icon={FaUpload}
+                    style={{backgroundColor: "#D39E00"}}
                 />
-                <Button
+                <IconButtonNav
                     text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaClipboard}
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaCog}
                 />
                 </Header>
                 <div
@@ -55,33 +60,40 @@ export const PublicarProfes = () => {
                         fontWeight: "bold",
                         marginTop: 140,
                         }}>
-                Seleccione la opcion a realizar
+                Llene los campos solicitados para hacer una publicacion al grupo
                 </div>
 
-                {/* Dropdown para seleccionar opción */}
-                <select 
-                    value={opcion} 
-                    onChange={(e) => setOpcion(e.target.value)} 
-                    style={{ padding: '10px', marginTop: '40px', fontSize: '16px', width: 210 }}
-                >
-                    <option value="" disabled>Seleccione una opción</option>
-                    <option value="Aviso">Aviso</option>
-                    <option value="Documento">Documento</option>
-                </select>
+                <div className="input-group">
+                    <label style={{fontSize: 25}}>Título de la publicación: </label>
+                    <input
+                        onChange={() => {}}
+                        placeholder="Ingrese un título"
+                        style={{fontSize: 20, marginTop: 25, width: 250}}
+                    />
+                </div>
+
+                {/* Input para subir archivo */}
+                <input 
+                    type="file" 
+                    accept="application/pdf"
+                    onChange={handleFileChange}
+                    style={{ display: 'block', marginTop: '25px', width: 320, fontSize: 15, backgroundColor: "white" }}
+                />
 
                 {/* Campo de texto para descripción */}
-                <textarea 
-                    placeholder="Ingrese la descripción aquí..." 
-                    value={descripcion} 
-                    onChange={(e) => setDescripcion(e.target.value)} 
-                    style={{ display: 'block', width: '100%', height: '100px', marginTop: '40px', padding: '10px', fontSize: '16px' }}
+                <input
+                    type="text"
+                    value={descripcion}
+                    onChange={(e) => setDescripcion(e.target.value)}
+                    placeholder="Ingrese la descripción aquí..."
+                    style={{ display: 'block', width: 400, height: 55, marginTop: '25px', padding: '10px', fontSize: '16px' }}
                 />
 
                 {/* Botón de enviar */}
                 <Button 
-                    text="Enviar" 
+                    text="Publicar" 
                     onClick={()=>{}} 
-                    style={{ marginTop: '40px', fontSize: '30px', padding: '10px 20px',  }}
+                    style={{ marginTop: '25px', fontSize: '30px', padding: '10px 20px',  }}
                 />
             </div>
          

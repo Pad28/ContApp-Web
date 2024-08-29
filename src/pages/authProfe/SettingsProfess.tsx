@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Header, IconButton } from "../../components";
 import "../../styles/pages/SettingsProfes.css";
 import { Modal } from "../../components/modals/Modal";
+import { FaChartLine } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
+import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 
 export const SettingsProfes = () => {
     const navigate = useNavigate();
@@ -39,25 +44,28 @@ export const SettingsProfes = () => {
                     onClick={() => handleNavigation("/inicio-profesor")}
                     style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
                 />
-                <Button
+                <IconButtonNav
+                    icon={FaChartLine}
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    style={{ color: "white", marginRight: 30}}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Publicar"
                     onClick={() => handleNavigation("/publicar-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaUpload}
                 />
-                <Button
+                <IconButtonNav
                     text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
-                    style={{ color: "white", marginRight: 30} }
+                    icon={FaClipboard}
+                    
                 />
-                <Button
+                <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
-                    style={{ color: "white", marginRight: 30, backgroundColor: "#D39E00"} }
+                    icon={FaCog}
+                    style={{backgroundColor: "#D39E00"}}
                 />
             </Header>
             <div style={{ height: 150 }}></div>
