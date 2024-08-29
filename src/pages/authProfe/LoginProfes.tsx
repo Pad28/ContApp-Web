@@ -10,8 +10,10 @@ import { LocalStorageKeys } from "../../providers/LocalStorage";
 export const LoginScreenProfes = () => {
     const navigate = useNavigate();
     const { form, onChange, peticionPostSwall, isLoading } = usePeticionPost({ correo: "", password: "" })
-
     const handleLogin = async () => {
+        
+
+        
         const result = (await peticionPostSwall({
             body: form,
             paht: "/api/auth/profesor"
@@ -19,9 +21,13 @@ export const LoginScreenProfes = () => {
         if (!result) return;
         localStorage.setItem(LocalStorageKeys.USER_DATA, JSON.stringify(result));
         localStorage.setItem(LocalStorageKeys.IS_LOGIN, "true");
-        navigate("/inicio-admin")
-        // const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
-        // const obj = JSON.parse(data!) as LoginResponse;
+        if(result.user.rol == "ADMIN"){
+            navigate("/inicio-admin");
+            return;
+        }
+            navigate("/inicio-profesor");
+        
+        
         
     };
     const cargando = ()=>{

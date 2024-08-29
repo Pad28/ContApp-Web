@@ -17,18 +17,27 @@ import { CrearGrupoAdmin } from "./pages/admin/CrearGruposAdmin";
 import { ModificarGrupoAdmin } from "./pages/admin/ModificarGruposAdmin";
 import { SettingsAdmin } from "./pages/admin/SettingsAdmin";
 import { AvanceAlumno } from "./pages/profes/AvanceAlumno";
+import { LocalStorageKeys } from "./providers/LocalStorage";
 // import { Header } from "./components";
 
 export const App = () => {
 
+  const isAuth = localStorage.getItem(LocalStorageKeys.IS_LOGIN) == "true";
+
   return (
     <div>
       <Routes>
+        <Route path="/profesor" > 
+          {isAuth ? (
+            <Route path="/inicio" element={<HomeScreenProfes/>} />
+          ) : (
+            <Route element={<h1>404 | Not found <div style={{ height: '28rem' }} /> </h1>} />
+          )}
+        </Route>
         <Route path="/forgot-password" element={<RecuperarContraProfes/>}/>
         <Route path="/login" element={<LoginScreenProfes />} />
-        <Route path="/inicio" element={<HomeScreen />} />
         <Route path="/send-email" element={<SendEmailScreen />} />
-        <Route path="/inicio-profesor" element={<HomeScreenProfes/>} />
+        
         <Route path="/alumnos-en-clase-profes" element={<AlumnosClaseProfe/>}/>
         <Route path="/avances-alumnos-profes" element={<AvancesAlumnosProfe/>} />
         <Route path="/publicar-profes" element={<PublicarProfes/>} />

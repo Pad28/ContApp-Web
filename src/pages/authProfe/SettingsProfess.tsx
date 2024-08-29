@@ -8,6 +8,7 @@ import { FaUpload } from "react-icons/fa";
 import { FaClipboard } from "react-icons/fa";
 import { FaCog } from "react-icons/fa";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
+import { LocalStorageKeys } from "../../providers/LocalStorage";
 
 export const SettingsProfes = () => {
     const navigate = useNavigate();
@@ -21,6 +22,8 @@ export const SettingsProfes = () => {
     };
 
     const handleCerrarSesion = ()=> {
+        localStorage.removeItem(LocalStorageKeys.USER_DATA);
+        localStorage.removeItem(LocalStorageKeys.IS_LOGIN);
         navigate("/login");
     }
 

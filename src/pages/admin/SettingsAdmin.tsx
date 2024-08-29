@@ -5,6 +5,7 @@ import "../../styles/pages/SettingsProfes.css";
 import { Modal } from "../../components/modals/Modal";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 import { FaChalkboardTeacher, FaCog, FaUsers } from "react-icons/fa";
+import { LocalStorageKeys } from "../../providers/LocalStorage";
 
 export const SettingsAdmin = () => {
     const navigate = useNavigate();
@@ -17,7 +18,9 @@ export const SettingsAdmin = () => {
         navigate(path);
     };
 
-    const handleCerrarSesion = ()=> {
+    const handleCerrarSesion = ()=>{
+        localStorage.removeItem(LocalStorageKeys.USER_DATA);
+        localStorage.removeItem(LocalStorageKeys.IS_LOGIN);
         navigate("/login");
     }
 
