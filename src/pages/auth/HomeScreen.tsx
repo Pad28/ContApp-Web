@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Header } from "../../components";
 import "../../styles/pages/HomeScreen.css";
@@ -36,14 +35,14 @@ export const HomeScreen = () => {
                 <Button
                     text="ISC91"
                     onClick={() => handleNavigation("/grupo1")}
-                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: 100}}
+                    style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: 100 }}
                 />
                 <Button
                     text="ISC92"
                     onClick={() => handleNavigation("/grupo2")}
                     style={{ backgroundColor: "#800020", color: "white", marginTop: 150, height: 110, width: 230, marginLeft: 200 }}
                 />
-                
+
             </div>
         </div>
     );

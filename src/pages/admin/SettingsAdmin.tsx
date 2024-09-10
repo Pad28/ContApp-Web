@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Header, IconButton } from "../../components";
+import { Button, Header } from "../../components";
 import "../../styles/pages/SettingsProfes.css";
 import { Modal } from "../../components/modals/Modal";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
@@ -18,7 +18,7 @@ export const SettingsAdmin = () => {
         navigate(path);
     };
 
-    const handleCerrarSesion = ()=>{
+    const handleCerrarSesion = () => {
         localStorage.removeItem(LocalStorageKeys.USER_DATA);
         localStorage.removeItem(LocalStorageKeys.IS_LOGIN);
         navigate("/login");
@@ -39,23 +39,23 @@ export const SettingsAdmin = () => {
     return (
         <div className="home-container">
             <Header text="">
-            <IconButtonNav
+                <IconButtonNav
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
                     icon={FaChalkboardTeacher}
-                    style={{width:200}}
+                    style={{ width: 200 }}
                 />
                 <IconButtonNav
                     text="Grupos"
                     onClick={() => handleNavigation("/grupos-admin")}
                     icon={FaUsers}
-                    
+
                 />
                 <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
                     icon={FaCog}
-                    style={{backgroundColor: "#D39E00"}}
+                    style={{ backgroundColor: "#D39E00" }}
                 />
             </Header>
             <div style={{ height: 150 }}></div>

@@ -45,6 +45,7 @@ export const CrearQuizProfes = () => {
         setQuestions(newQuestions);
     };
 
+
     return (
         <div className="home-container">
             <Header text="">
@@ -133,8 +134,8 @@ export const CrearQuizProfes = () => {
             </div>
             <Button
                 text="Publicar Quizz"
-                onClick={()=>{}}
-                style={{ fontSize: 30, marginTop: 20, width: 220, marginBottom:20 }}
+                onClick={() => { }}
+                style={{ fontSize: 30, marginTop: 20, width: 220, marginBottom: 20 }}
             />
             <div style={{ height: 150 }}></div>
         </div>

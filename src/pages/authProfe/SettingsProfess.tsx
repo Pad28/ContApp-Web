@@ -9,6 +9,7 @@ import { FaClipboard } from "react-icons/fa";
 import { FaCog } from "react-icons/fa";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 import { LocalStorageKeys } from "../../providers/LocalStorage";
+import { CircularProgress } from "@mui/material";
 
 export const SettingsProfes = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const SettingsProfes = () => {
         navigate(path);
     };
 
-    const handleCerrarSesion = ()=> {
+    const handleCerrarSesion = () => {
         localStorage.removeItem(LocalStorageKeys.USER_DATA);
         localStorage.removeItem(LocalStorageKeys.IS_LOGIN);
         navigate("/login");
@@ -45,13 +46,13 @@ export const SettingsProfes = () => {
                 <IconButton
                     icon="home"
                     onClick={() => handleNavigation("/inicio-profesor")}
-                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf:"center", padding:"1.5rem" }}
+                    style={{ backgroundColor: "#123456", color: "white", marginRight: 250, alignSelf: "center", padding: "1.5rem" }}
                 />
                 <IconButtonNav
                     icon={FaChartLine}
                     text="Avances"
                     onClick={() => handleNavigation("/avances-alumnos-profes")}
-                    
+
                 />
                 <IconButtonNav
                     text="Publicar"
@@ -62,49 +63,60 @@ export const SettingsProfes = () => {
                     text="Quizz"
                     onClick={() => handleNavigation("/quiz-profes")}
                     icon={FaClipboard}
-                    
+
                 />
                 <IconButtonNav
                     text="Settings"
                     onClick={() => handleNavigation("/settings-profes")}
                     icon={FaCog}
-                    style={{backgroundColor: "#D39E00"}}
+                    style={{ backgroundColor: "#D39E00" }}
                 />
             </Header>
             <div style={{ height: 150 }}></div>
             <div className="content">
-                <div className="settings-container">
-                    <div className="setting-item">
-                        <span className="setting-label">Nombre:</span>
-                        <Button
-                            text="Yahir"
-                            style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
-                            onClick={() => setIsNameModalOpen(true)}
-                        />
-                    </div>
-                    <div className="setting-item">
-                        <span className="setting-label">Apellido:</span>
-                        <Button
-                            text="Gutierre Cano"
-                            style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
-                            onClick={() => setIsLastNameModalOpen(true)}
-                        />
-                    </div>
-                    <div className="setting-item">
-                        <span className="setting-label">Contraseña:</span>
-                        <Button
-                            text="*********"
-                            style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
-                            onClick={() => setIsPasswordModalOpen(true)}
-                        />
-                    </div>
-                    <hr className="divider" />
-                    <Button
-                        text="Cerrar sesión"
-                        style={{ backgroundColor: "red", color: "white", width: "200px", marginTop: "20px", borderRadius: "10px" }}
-                        onClick={() => setIsCerrarSesionOpen(true)}
+                {(!true) ? (
+                    <CircularProgress
+                        style={{
+                            marginTop: "20rem"
+                        }}
+                        size={100}
                     />
-                </div>
+                ) : (
+                    <>
+                        <div className="settings-container">
+                            <div className="setting-item">
+                                <span className="setting-label">Nombre:</span>
+                                <Button
+                                    text="Yahir"
+                                    style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
+                                    onClick={() => setIsNameModalOpen(true)}
+                                />
+                            </div>
+                            <div className="setting-item">
+                                <span className="setting-label">Apellido:</span>
+                                <Button
+                                    text="Gutierre Cano"
+                                    style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
+                                    onClick={() => setIsLastNameModalOpen(true)}
+                                />
+                            </div>
+                            <div className="setting-item">
+                                <span className="setting-label">Contraseña:</span>
+                                <Button
+                                    text="*********"
+                                    style={{ backgroundColor: "#002855", color: "white", width: "200px", borderRadius: "10px" }}
+                                    onClick={() => setIsPasswordModalOpen(true)}
+                                />
+                            </div>
+                            <hr className="divider" />
+                            <Button
+                                text="Cerrar sesión"
+                                style={{ backgroundColor: "red", color: "white", width: "200px", marginTop: "20px", borderRadius: "10px" }}
+                                onClick={() => setIsCerrarSesionOpen(true)}
+                            />
+                        </div>
+                    </>
+                )}
             </div>
 
             {/* Modales */}

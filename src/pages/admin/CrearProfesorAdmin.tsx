@@ -19,10 +19,10 @@ export const CrearProfeAdmin = () => {
     };
 
     // Estado para almacenar los valores de los campos de entrada
-    
 
 
-    const {form, onChange, peticionPostSwall, isLoading } = usePeticionPost({ matricula: "", correo: "", nombre: "", apellidos: "", password: ""})
+
+    const { form, onChange, peticionPostSwall } = usePeticionPost({ matricula: "", correo: "", nombre: "", apellidos: "", password: "" })
 
     const handleCrearProfe = async () => {
         const data = localStorage.getItem(LocalStorageKeys.USER_DATA);
@@ -30,8 +30,8 @@ export const CrearProfeAdmin = () => {
         const result = (await peticionPostSwall({
             body: form,
             paht: "/api/user/profesor",
-            config: {headers:{Authorization:"Bearer "+obj.token}}
-            
+            config: { headers: { Authorization: "Bearer " + obj.token } }
+
         })) as CrearProfeInterfaz;
         if (!result) return;
         Swal.fire({
@@ -45,18 +45,18 @@ export const CrearProfeAdmin = () => {
     return (
         <div className="home-container">
             <Header text="">
-            <IconButtonNav
+                <IconButtonNav
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
                     icon={FaChalkboardTeacher}
-                    style={{width:200, backgroundColor: "#D39E00"}}
-                    
+                    style={{ width: 200, backgroundColor: "#D39E00" }}
+
                 />
                 <IconButtonNav
                     text="Grupos"
                     onClick={() => handleNavigation("/grupos-admin")}
                     icon={FaUsers}
-                    
+
                 />
                 <IconButtonNav
                     text="Settings"
@@ -71,7 +71,7 @@ export const CrearProfeAdmin = () => {
                     style={{
                         backgroundColor: isActive("/crear-profe-admin") ? "#D39E00" : "white",
                         color: isActive("/crear-profe-admin") ? "black" : "white",
-                        width: 290, marginTop: 150, 
+                        width: 290, marginTop: 150,
                     }}
                 />
                 <Button
@@ -80,50 +80,50 @@ export const CrearProfeAdmin = () => {
                     style={{ marginLeft: 100, width: "340px" }}
                 />
             </div>
-            <div className="content" style={{textAlign: "center"}}>
+            <div className="content" style={{ textAlign: "center" }}>
                 <div className="input-group" style={{ marginTop: 10 }}>
-                    <label style={{fontSize: 25}}>Número de empleado: </label>
+                    <label style={{ fontSize: 25 }}>Número de empleado: </label>
                     <InputPrimary
                         type="text"
                         onChange={(value) => onChange(value, "matricula")}
                         placeholder="Ingrese número de empleado"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 280}}
+                        style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 280 }}
                     />
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Correo: </label>
+                    <label style={{ fontSize: 25 }}>Correo: </label>
                     <InputPrimary
                         type="email"
                         onChange={(value) => onChange(value, "correo")}
                         placeholder="Ingrese correo"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
+                        style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Nombre: </label>
+                    <label style={{ fontSize: 25 }}>Nombre: </label>
                     <InputPrimary
                         type="text"
                         onChange={(value) => onChange(value, "nombre")}
                         placeholder="Ingrese nombre"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250}}
+                        style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Apellidos: </label>
+                    <label style={{ fontSize: 25 }}>Apellidos: </label>
                     <InputPrimary
                         type="text"
                         onChange={(value) => onChange(value, "apellidos")}
                         placeholder="Ingrese apellidos"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
+                        style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Contraseña: </label>
+                    <label style={{ fontSize: 25 }}>Contraseña: </label>
                     <InputPrimary
                         type="password"
                         onChange={(value) => onChange(value, "password")}
                         placeholder="Ingrese contraseña"
-                        style={{fontSize: 20, marginTop: 10, width: 250}}
+                        style={{ fontSize: 20, marginTop: 10, width: 250 }}
                     />
                 </div>
                 <Button

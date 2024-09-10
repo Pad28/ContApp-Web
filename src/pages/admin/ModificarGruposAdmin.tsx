@@ -11,12 +11,6 @@ const profesores = [
     // Añadir más profesores según sea necesario
 ];
 
-const grupos = [
-    { grupo: "ADE11" },
-    { grupo: "ADE23" },
-    // Añadir más profesores según sea necesario
-];
-
 export const ModificarGrupoAdmin = () => {
     const navigate = useNavigate();
 
@@ -38,28 +32,14 @@ export const ModificarGrupoAdmin = () => {
         }
     };
 
-    const [selectedProfesor2, setSelectedProfesor2] = useState(profesores[0].numeroEmpleado);
-    // Manejar el cambio de selección en el ComboBox
-    const handleSelectChange2 = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const numeroEmpleado = e.target.value;
-        setSelectedProfesor(numeroEmpleado);
-
-        // Buscar el profesor seleccionado en la lista y actualizar los campos
-        const profesor = profesores.find((prof) => prof.numeroEmpleado === numeroEmpleado);
-        if (profesor) {
-            setEmail(profesor.correo);
-            setFirstName(profesor.nombre);
-            setLastName(profesor.apellidos);
-            setPassword(profesor.contraseña);
-        }
-    };
+    const [selectedProfesor2] = useState(profesores[0].numeroEmpleado);
 
     const handleNavigation = (path: string) => {
         navigate(path);
     };
 
     // Estado para almacenar los valores de los campos de entrada
-    const [employeeNumber, setEmployeeNumber] = useState('');
+    const [employeeNumber] = useState('');
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -81,11 +61,11 @@ export const ModificarGrupoAdmin = () => {
     return (
         <div className="home-container">
             <Header text="">
-            <IconButtonNav
+                <IconButtonNav
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
                     icon={FaChalkboardTeacher}
-                    style={{width:200}}
+                    style={{ width: 200 }}
                 />
                 <IconButtonNav
                     text="Grupos"
@@ -103,7 +83,7 @@ export const ModificarGrupoAdmin = () => {
                 <Button
                     text="Crear grupo"
                     onClick={() => handleNavigation("/crear-grupos-admin")}
-                    style={{width: "180px", marginRight: 100 }}
+                    style={{ width: "180px", marginRight: 100 }}
                 />
                 <Button
                     text="Modificar grupo"
@@ -115,10 +95,10 @@ export const ModificarGrupoAdmin = () => {
                     }}
                 />
             </div>
-            <div className="content" style={{textAlign: "center"}}>
+            <div className="content" style={{ textAlign: "center" }}>
                 <div className="input-group" style={{ marginTop: 10 }}>
-                    <label style={{fontSize: 25}}>Grupo(s): </label>
-                    <select value={selectedProfesor2} onChange={handleSelectChange}  style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
+                    <label style={{ fontSize: 25 }}>Grupo(s): </label>
+                    <select value={selectedProfesor2} onChange={handleSelectChange} style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
                         {profesores.map((prof) => (
                             <option key={prof.numeroEmpleado} value={prof.numeroEmpleado}>
                                 {prof.numeroEmpleado}
@@ -127,8 +107,8 @@ export const ModificarGrupoAdmin = () => {
                     </select>
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Número de empleado: </label>
-                    <select value={selectedProfesor} onChange={handleSelectChange}  style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
+                    <label style={{ fontSize: 25 }}>Número de empleado: </label>
+                    <select value={selectedProfesor} onChange={handleSelectChange} style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
                         {profesores.map((prof) => (
                             <option key={prof.numeroEmpleado} value={prof.numeroEmpleado}>
                                 {prof.numeroEmpleado}

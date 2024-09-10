@@ -25,102 +25,102 @@ export const Avance = ({ onClickButton, icon: Icon, text, titulo }: Props) => {
             }}>
 
             <h3 style={{
-                color:"white",
-                margin: 0, 
-                padding:10,
+                color: "white",
+                margin: 0,
+                padding: 10,
                 fontSize: 30
             }}>{titulo}</h3>
-             
-        <div
-            style={{
-                
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr"
-            }}
-        >
-            <div
-                style={{
-                    justifyContent: "center",
-                    alignSelf: "center",
-                    padding: 10
-                }}>
-
-                <p style={{
-                    borderRadius: 10,
-                    border: "solid 1.5px",
-                    borderColor: "white",
-                    color: "white",
-                    margin: 0,
-                    padding: 5
-
-
-                    
-                }}>Calificación</p>
-            </div>
 
             <div
                 style={{
-                    display: "flex",
-                    padding: 10,
-                    textAlign: "center",
-                    justifyContent: "center"
 
-                }}>
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr"
+                }}
+            >
+                <div
+                    style={{
+                        justifyContent: "center",
+                        alignSelf: "center",
+                        padding: 10
+                    }}>
 
-                <p style={{
-                    borderRadius: 10,
-                    border: "solid 1.5px",
-                    borderColor: "white",
-                    color: "white",
-                    margin: 0,
-                    padding: 5,
-                    width: 80
+                    <p style={{
+                        borderRadius: 10,
+                        border: "solid 1.5px",
+                        borderColor: "white",
+                        color: "white",
+                        margin: 0,
+                        padding: 5
 
-                    
-                }}>{text}</p>
-            </div>
 
-            <div
-                style={{
-                    display:"flex",
-                    justifyContent: "center",
-                    padding: 10,
-                    alignSelf:"center"
-                }}>
 
-                
-                <Icon style={{
-                    color: "white",
-                    margin: 0,
-                    padding: 5,
-                    width:45,
-                    height:45
-                }} className="icon" />
-            </div>
+                    }}>Calificación</p>
+                </div>
 
-            <div
-                style={{
-                    display: "flex",
-                    padding: 10,
-                    textAlign: "center",
-                    justifyContent: "center"
-                }}>
+                <div
+                    style={{
+                        display: "flex",
+                        padding: 10,
+                        textAlign: "center",
+                        justifyContent: "center"
 
-                <Button
-                    onClick={()=>{onClickButton}}
-                    text="Mas"
-                    
+                    }}>
+
+                    <p style={{
+                        borderRadius: 10,
+                        border: "solid 1.5px",
+                        borderColor: "white",
+                        color: "white",
+                        margin: 0,
+                        padding: 5,
+                        width: 80
+
+
+                    }}>{text}</p>
+                </div>
+
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        padding: 10,
+                        alignSelf: "center"
+                    }}>
+
+
+                    <Icon style={{
+                        color: "white",
+                        margin: 0,
+                        padding: 5,
+                        width: 45,
+                        height: 45
+                    }} className="icon" />
+                </div>
+
+                <div
+                    style={{
+                        display: "flex",
+                        padding: 10,
+                        textAlign: "center",
+                        justifyContent: "center"
+                    }}>
+
+                    <Button
+                        onClick={onClickButton}
+                        text="Mas"
+
                     />
-            </div>
-
-            
-            
+                </div>
 
 
 
 
-        </div >
-    
+
+
+
+            </div >
+
         </div>
 
     );

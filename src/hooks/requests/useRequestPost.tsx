@@ -16,35 +16,35 @@ export const usePeticionPost = <T extends Object>(initState: T) => {
     const [isLoading, setIsLoading] = useState(false);
     const { form, onChange, validateEmptyFields, clearValues } = useForm(initState);
 
-    const peticionPost = async(paht: string, body: Object, config?: AxiosRequestConfig) => {
+    const peticionPost = async (paht: string, body: Object, config?: AxiosRequestConfig) => {
         setIsLoading(true);
         validateEmptyFields('Completa todos los campos');
 
-        const response  = await contAppApi.post(paht, body, config)
+        const response = await contAppApi.post(paht, body, config)
             .catch(error => {
                 setIsLoading(false);
-                if(error.response) {
-                    if(error.response.data.error) throw new Error(error.response.data.error);
+                if (error.response) {
+                    if (error.response.data.error) throw new Error(error.response.data.error);
                     throw new Error(error.response.data.errors[0].msg);
                 }
 
-                if(error.request) throw new Error('Ups... ocurrio un error, intentalo mas tarde.');
+                if (error.request) throw new Error('Ups... ocurrio un error, intentalo mas tarde.');
             });
 
         setIsLoading(false);
-        if(!response) return 'Error en la peticion';
+        if (!response) return 'Error en la peticion';
         return response.data;
     }
 
-    const peticionPostSwall = async(options: peticionPostSwallOptions) => {
-        const  { body, paht, config, messageError, messageSuccess } = options;
+    const peticionPostSwall = async (options: peticionPostSwallOptions) => {
+        const { body, paht, config, messageError } = options;
         const resultado = await peticionPost(paht, body, config)
             .catch(error => {
                 setIsLoading(false)
                 Swal.fire({
                     icon: 'error',
                     text: (messageError) ? messageError : `${error.message}`,
-                    customClass: { popup: 'alert' }
+                    customClass: { popup: 'alert' },
                 });
             });
         return resultado;

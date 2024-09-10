@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { Button, Header, InputPrimary } from "../../components";
 import "../../styles/pages/LoginProfes.css";
 import { useNavigate } from "react-router-dom";
 import { LoginResponse } from "../../interfaces/LoginResponse";
 import { usePeticionPost } from "../../hooks/requests/useRequestPost";
 import { LocalStorageKeys } from "../../providers/LocalStorage";
+import { CircularProgress, colors } from "@mui/material";
 
 export const LoginScreenProfes = () => {
     const navigate = useNavigate();
     const { form, onChange, peticionPostSwall, isLoading } = usePeticionPost({ correo: "", password: "" })
-    const handleLogin = async () => {
-        
 
-        
+    const handleLogin = async () => {
         const result = (await peticionPostSwall({
             body: form,
             paht: "/api/auth/profesor"
@@ -21,37 +18,13 @@ export const LoginScreenProfes = () => {
         if (!result) return;
         localStorage.setItem(LocalStorageKeys.USER_DATA, JSON.stringify(result));
         localStorage.setItem(LocalStorageKeys.IS_LOGIN, "true");
-        if(result.user.rol == "ADMIN"){
+        if (result.user.rol == "ADMIN") {
             navigate("/inicio-admin");
             return;
         }
-            navigate("/inicio-profesor");
-        
-        
-        
+        navigate("/inicio-profesor");
     };
-    const cargando = ()=>{
-        
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "center",
-                width: 200,
-                heightAuto: true,
-                showConfirmButton: false,
-                timer: 400,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.onmouseenter = Swal.stopTimer;
-                  toast.onmouseleave = Swal.resumeTimer;
-                }
-              });
-              Toast.fire({
-                icon: "info",
-                title: "Cargando..."
-              });
-        
-    }
- 
+
 
     return (
         <div className="login-container">
@@ -78,20 +51,28 @@ export const LoginScreenProfes = () => {
                         />
 
                         <div className="forgot-password">
-                            <a onClick={()=>navigate("/forgot-password")}>¿Olvidaste tu contraseña?</a>
+                            <a onClick={() => navigate("/forgot-password")}>¿Olvidaste tu contraseña?</a>
                         </div>
 
-                        <Button
-                            text="Ingresar"
-                            onClick={()=>{
-                                handleLogin();
-                                cargando();
-                            }}
-                            style={{ width: "100%", marginTop: "1rem" }}
-                        />
+                        {(isLoading) ? (
+                            <CircularProgress
+                                style={{ color: colors.blue[900], marginTop: '8rem', alignSelf: "center" }}
+                                size={100}
+                            />
+                        ) : (
+                            <Button
+                                text="Ingresar"
+                                onClick={() => {
+                                    handleLogin();
+                                }}
+                                style={{ width: "100%", marginTop: "1rem" }}
+                            />
+                        )}
+
+
                     </div>
 
-                    
+
                 </>
             )}
         </div>

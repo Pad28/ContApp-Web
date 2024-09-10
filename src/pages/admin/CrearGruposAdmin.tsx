@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Header, IconButton } from "../../components";
+import { Button, Header } from "../../components";
 import "../../styles/pages/HomeScreen.css";
 import { IconButtonNav } from "../../components/buttons/IconButtonNav";
 import { FaCog } from "react-icons/fa";
@@ -65,7 +65,7 @@ export const CrearGrupoAdmin = () => {
                     text="Profesores"
                     onClick={() => handleNavigation("/inicio-admin")}
                     icon={FaChalkboardTeacher}
-                    style={{width:200}}
+                    style={{ width: 200 }}
                 />
                 <IconButtonNav
                     text="Grupos"
@@ -95,20 +95,20 @@ export const CrearGrupoAdmin = () => {
                     style={{ marginLeft: 100, width: "230px" }}
                 />
             </div>
-            <div className="content" style={{textAlign: "center"}}>
+            <div className="content" style={{ textAlign: "center" }}>
                 <div className="input-group" style={{ marginTop: 10 }}>
-                    <label style={{fontSize: 25}}>Nombre del grupo: </label>
+                    <label style={{ fontSize: 25 }}>Nombre del grupo: </label>
                     <input
                         type="text"
                         value={employeeNumber}
                         onChange={(e) => setEmployeeNumber(e.target.value)}
                         placeholder="Ingrese nombre del grupo"
-                        style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 250}}
+                        style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 250 }}
                     />
                 </div>
                 <div className="input-group">
-                    <label style={{fontSize: 25}}>Número de empleado: </label>
-                    <select value={selectedProfesor} onChange={handleSelectChange}  style={{fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
+                    <label style={{ fontSize: 25 }}>Número de empleado: </label>
+                    <select value={selectedProfesor} onChange={handleSelectChange} style={{ fontSize: 20, marginTop: 10, marginBottom: 20, width: 150 }}>
                         {profesores.map((prof) => (
                             <option key={prof.numeroEmpleado} value={prof.numeroEmpleado}>
                                 {prof.numeroEmpleado}

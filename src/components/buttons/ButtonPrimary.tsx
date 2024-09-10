@@ -8,7 +8,7 @@ interface Props {
     icon?: IconType;
 }
 
-export const Button = ({ icon: Icon, onClick, text, style }: Props) => {
+export const Button = ({ onClick, text, style }: Props) => {
     return (
         <input
             style={style}
